@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Attendance System</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Student Attendance System</h1>
+
+      <div id="attendance-form">
+        <h2>Add/Update Attendance</h2>
+        <input type="text" id="name" placeholder="Student Name" />
+        <input type="text" id="roll" placeholder="Roll Number" />
+        <input type="date" id="date" />
+        <select id="attendance">
+          <option value="true">Present</option>
+          <option value="false">Absent</option>
+        </select>
+        <button id="submitBtn">Submit</button>
+      </div>
+
+      <div id="attendance-list">
+        <h2>Attendance Records</h2>
+        <ul id="records"></ul>
+        <div id="pagination">
+          <button id="prevPage">Previous</button>
+          <span id="pageInfo"></span>
+          <button id="nextPage">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
