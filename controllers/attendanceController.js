@@ -46,18 +46,30 @@ const getAllAttendance = async (req, res) => {
 // Create a new attendance record
 const createAttendance = async (req, res) => {
   try {
-    const [day, month, year] = req.body.date.split("-");
-    const formattedDate = `${year}-${month}-${day}`;
-    const attendance = new Attendance({
-      name: req.body.name,
-      roll: req.body.roll,
-      date: new Date(formattedDate),
-      attendance: req.body.attendance,
+    const { name, roll, date, attendance } = req.body;
+
+    if (!name || !roll || !date || attendance == null) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
+
+    // Attempt to parse the date
+    const formattedDate = new Date(date);
+
+    if (isNaN(formattedDate.getTime())) {
+      return res.status(400).json({ message: "Invalid date format" });
+    }
+
+    const newAttendance = new Attendance({
+      name,
+      roll,
+      date: formattedDate,
+      attendance,
     });
-    const newAttendance = await attendance.save();
+
+    await newAttendance.save();
     res.status(201).json(newAttendance);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(500).json({ message: error.message });
   }
 };
 
