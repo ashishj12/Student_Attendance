@@ -1,14 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Ensure body content stacks vertically */
   min-height: 100vh;
-  background-color: #f4f4f4; /* Light background color for the whole page */
-  color: #333;
+  background-color: #121212; /* Dark background color for the whole page */
+  color: #e0e0e0; /* Light text color for contrast */
+}
+
+nav {
+  background-color: #1e1e1e;
+  padding: 10px 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
 }
 
 .container {
@@ -16,20 +43,20 @@ body {
   max-width: 1200px;
   margin: 20px auto;
   padding: 20px;
-  background-color: #fff; /* White background for the container */
+  background-color: #1e1e1e; /* Dark background for the container */
   border-radius: 8px; /* Rounded corners for the container */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly more pronounced shadow for depth */
 }
 
 h1 {
-  color: #333;
+  color: #ffffff; /* Light color for the main heading */
   font-size: 2em; /* Larger font size for the main heading */
   margin-bottom: 20px;
   text-align: center;
 }
 
 h2 {
-  color: #555;
+  color: #e0e0e0; /* Light color for subheadings */
   font-size: 1.5em;
   margin-bottom: 15px;
 }
@@ -42,14 +69,15 @@ button {
   padding: 12px;
   margin-bottom: 15px;
   border-radius: 5px;
-  border: 1px solid #ddd;
+  border: 1px solid #333;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-size: 16px;
 }
 
 input,
 select {
-  background-color: #f9f9f9; /* Light background for input and select fields */
+  background-color: #333; /* Dark background for input and select fields */
+  color: #e0e0e0; /* Light text color */
 }
 
 input:focus,
@@ -60,7 +88,7 @@ select:focus {
 
 button {
   background-color: #007bff;
-  color: #fff;
+  color: #ffffff;
   border: none;
   cursor: pointer;
 }
@@ -70,7 +98,7 @@ button:hover {
 }
 
 button:disabled {
-  background-color: #ccc;
+  background-color: #555; /* Slightly darker gray for disabled state */
   cursor: not-allowed;
 }
 
@@ -80,18 +108,18 @@ button:disabled {
 }
 
 #records li {
-  background: #fff;
+  background: #1e1e1e; /* Dark background for records */
   padding: 15px;
   margin-bottom: 15px;
   border-radius: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid #333;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-size: 16px;
-  color: #333;
+  color: #e0e0e0; /* Light text color for records */
 }
 
 #records li:nth-child(odd) {
-  background: #f9f9f9;
+  background: #282828; /* Slightly lighter dark background for alternating records */
 }
 
 #pagination {
@@ -106,7 +134,7 @@ button:disabled {
   padding: 10px 20px;
   font-size: 16px;
   background-color: #007bff;
-  color: #fff;
+  color: #ffffff;
   border: none;
   cursor: pointer;
   border-radius: 5px;
@@ -117,11 +145,30 @@ button:disabled {
 }
 
 #pagination button:disabled {
-  background-color: #ccc;
+  background-color: #555; /* Slightly darker gray for disabled state */
   cursor: not-allowed;
 }
 
 #pageInfo {
   font-size: 16px;
   margin: 0 10px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  #records li {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  #records li img {
+    width: 75px;
+    height: 112.5px;
+  }
 }
